@@ -1,1 +1,313 @@
+Ejercicio 1:
+import java.util.*;
 
+public class Complementario1 {
+  public static boolean sal;
+  public static int opc;
+  
+  public static void main(String[] args) {		
+        
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa cargara una lista de Lugares y luego los imprimira por pantalla");
+      
+       ArrayList<String>Lugares = new ArrayList<String>();
+       //Carga del arraylist 
+       while (! sal){
+            System.out.println("Ingrese un lugar para agregar al ranking:");
+            String lugar = scan.next();
+
+            Lugares.add(lugar);
+            
+            System.out.println("Desea terminar? 1-0");
+            scan.nextLine();
+            opc = scan.nextInt();
+            if (opc==1){
+                sal=true;
+            } 
+        }
+        System.out.println(Lugares);
+        scan.close();
+    }
+}
+
+Ejercicio 2:
+import java.util.*;
+
+public class Complementario2 {
+  public static int numero;
+  
+  public static void main(String[] args) {		
+        
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa cargara una lista en el primer lugar y el ultimo, luego imprime por pantalla las dos listas y el tamaño");
+      
+        ArrayList<Integer> Lista1 = new ArrayList<>();
+        ArrayList<Integer> Lista2 = new ArrayList<>();
+       //Carga del arraylist1
+       System.out.println("Por favor, ingrese los elementos");
+       for(int i =0; i <= 4; i++){
+        System.out.print("Elemento " + (i+1) + ": "); Lista1.add(scan.nextInt());
+       }
+
+       //como no entendi bien el enunciado si queria que itere que se pueda ingresar varias veces al inicio y al final o que se ingrese una sola vez
+       //lo deje como si se ingresara una sola vez no mas, en caso de querer ingresar varias veces al inicio y al final se tendria que cambiar esta parte
+       
+       //bloque de carga al inicio
+       System.out.println("Ingrese el elemento a colocar al inicio: "); 
+       Lista2.add(scan.nextInt());
+
+       for(int j =0; j <= 4; j++){
+            Lista2.add(Lista1.get(j));
+       }
+       
+       //bloque de carga al final
+       System.out.println("Ingrese el elemento a colocar al final: "); 
+       Lista2.add(scan.nextInt());
+
+       System.out.println("Lista 1: "+ Lista1 + " - Size: " + Lista1.size());
+       System.out.println("Lista 2: "+ Lista2 + " - Size: " + Lista2.size());
+       
+       /*otra forma de hacer la impresion por pantalla:
+       System.out.print("Lista 1: ");
+       for(int i =0; i <= 4; i++){
+           System.out.print(Lista1.get(i)+ ", ");
+       }
+       System.out.println("Size: "+ Lista1.size());
+       
+       System.out.print("Lista 2: ");
+       for(int j =0; j <= 6; j++){
+           System.out.print(Lista2.get(j)+ ", ");
+       }
+       System.out.println("1Size: "+ Lista2.size());
+       */
+        scan.close();
+    }
+}
+
+Ejercicio 3:
+import java.util.*;
+
+public class Complementario3 {
+  public static int numero;
+  
+  
+  public static void main(String[] args) {		
+        
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa mostrara la baraja francesa de diferentes formas");
+      
+        ArrayList<Integer> Baraja = new ArrayList<Integer>();
+        
+        //Carga del baraja en orden
+       for(int i =0; i <= 12; i++){
+            Baraja.add((i+2));
+       }
+       
+       System.out.println("Baraja en orden: "+ Baraja);
+       
+       //bloque reverso
+       Collections.reverse(Baraja);
+       System.out.println("Baraja en reverso: "+ Baraja);
+              
+        //bloque mezcla
+        Collections.shuffle(Baraja);
+        System.out.println("Baraja mezclada: "+ Baraja);
+
+        scan.close();
+    }    
+}
+/*Otra forma de hacer reverse
+ListIterator iter = Baraja.listIterator(Baraja.size());
+numero = 0;
+System.out.print("Baraja en reverso: [");
+       
+while (iter.hasPrevious()){
+    if (numero!=12){
+        System.out.print(iter.previous()+", ");
+    }else{
+        System.out.print(iter.previous());
+    }
+        numero++;
+}
+System.out.print("]");*/
+
+Ejercicio 4:
+import java.util.*;
+
+public class Complementario4 {
+  public static int numero;
+  
+  
+  public static void main(String[] args) {		
+        
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa cargara 12 alumnos y lo subdivide en 3 sublistas");
+      
+    ArrayList<String> Alumnos = new ArrayList<String>();
+
+    for (int i = 0; i <12; i++){
+      System.out.println("ingrese nombre del alumno: ");
+      Alumnos.add(scan.nextLine());
+    }
+
+    List<String> Sublista1 = Alumnos.subList(0, 4);
+    List<String> Sublista2 = Alumnos.subList(4, 8);
+    List<String> Sublista3 = Alumnos.subList(8, 12);
+
+    System.out.println(Sublista1);
+    System.out.println(Sublista2);
+    System.out.println(Sublista3);
+  }
+}
+
+Ejercicio 5
+import java.util.*;
+
+public class Complementario5 {
+    public static int aux;
+    public static void main(String[] args) {
+        System.out.println("Este programa calculara el total a cobrar de los empleados");
+
+        List<Integer> numeros = new ArrayList<>();
+        List<Integer> pago = new ArrayList<>();
+
+        numeros.add(6);
+        numeros.add(7);
+        numeros.add(8);
+        numeros.add(4);
+        numeros.add(5);
+
+        pago.add(350);
+        pago.add(345);
+        pago.add(550);
+        pago.add(600);
+        pago.add(320);
+
+        aux = 0;
+        System.out.print("[ ");
+        for (int i = 0; i < numeros.size(); i++) {
+            System.out.print( numeros.get(i)*pago.get(i)+" ");
+            aux= aux+numeros.get(i)*pago.get(i);
+        }
+        System.out.println("]");
+        System.out.println("Total Final: $" + aux);
+    }
+}
+
+Ejercicio 6:
+Parte Main:
+package Complementario6;
+import java.util.*;
+
+public class Complementario6 {
+    public static int c;
+    
+    public static void main(String[] args) {
+        Set<Empleado> lista = new HashSet<Empleado>();
+
+        //formato carga por variable
+        String nombre = "Homero";
+        int dni = 30520640;
+        int horas = 50;
+        int valorxH = 400;
+
+        Empleado registro1 = new Empleado(nombre, dni, horas, valorxH);
+        //formato carga por parametros directo
+        Empleado registro2 = new Empleado("Carlos", 25789323, 25, 550);
+        Empleado registro3 = new Empleado("Leo", 40570846, 20, 700);
+
+        lista.add(registro1);
+        lista.add(registro2);
+        lista.add(registro3);
+
+        System.out.println("Lista de empleados:");
+        System.out.println("--------------------");
+        for (Empleado empleado : lista) {
+            System.out.println(empleado);
+        }
+        
+        System.out.println();
+
+        System.out.println("   DNI      Sueldo");
+        System.out.println("----------------------");
+        System.out.println(" "+ registro1.obtDni() + "   " + registro1.sueldo());  
+        System.out.println(" "+ registro2.obtDni() + "   " + registro2.sueldo());
+        System.out.println(" "+ registro3.obtDni() + "   " + registro3.sueldo());
+    }    
+}
+Parte Class:
+package Complementario6;
+
+public class Empleado {
+
+    String nombre;
+    int dni;
+    int horas;
+    int valorxH;
+
+    public Empleado(String nombre, int dni, int horas, int valorxH){
+        this.nombre = nombre;
+        this.dni = dni;
+        this.horas = horas;
+        this.valorxH = valorxH;
+    }
+
+    public String toString() {
+        return  ("Nombre: "+ this.nombre + String.valueOf(" DNI: "+ this.dni + " Horas Trabajadas: " + this.horas + " Valor: " + this.valorxH));
+    }
+
+    public int sueldo(){
+        return (this.horas * this.valorxH);
+    }
+
+    public int obtDni(){
+        return (this.dni);
+    }
+}
+
+Ejercicio 7
+import java.util.*;
+
+public class Complementario7 {
+    public static int start;
+    public static int end;
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Este programa agarrara un valor de comienzo y final");
+
+        ArrayList<Integer> Lista = new ArrayList<Integer>();
+        ArrayList<String> Lista2 = new ArrayList<String>();
+        System.out.println("Nota: El valor de comienzo debe ser menor al valor de final, sino el bucle no finaliza.");
+        System.out.println();
+        do{
+            System.out.print("Ingrese el valor de comienzo: ");
+            start = scan.nextInt();
+            System.out.print("Ingrese el valor de final: ");
+            end = scan.nextInt();
+        }while(end<start);
+
+        for (int i = start; i < end; i++) {
+            Lista.add(i);
+        }
+        for (int aux:Lista) {
+            if ((((aux % 2) == 0) && ((aux % 3) == 0))) {
+                Lista2.add("FizzBuzz");
+            }else if ((aux % 2) == 0) {
+                Lista2.add("Fizz");
+            }else if ((aux % 3 ) == 0) {
+                Lista2.add("Buzz");
+            }else{
+                String cadena = Integer.toString(aux);
+                Lista2.add(cadena);
+            }
+        }
+        System.out.print(Lista);
+        System.out.println();
+        System.out.print(Lista2);
+        scan.close();
+    }
+}
