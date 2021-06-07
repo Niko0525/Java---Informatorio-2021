@@ -43,16 +43,201 @@ public class Complementario2 {
 		scan.close();
 	}
 }
+
 Ejercicio 3
+import java.util.*;
+
+public class Complementario3 {
+	public static void main(String[] args) {		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa va incrementar un numero entero las veces que el usuario defina");
+
+		System.out.println("Ingrese un Numero Entero:");
+		int a = scan.nextInt();
+
+		for(int i = 1; i <= a; i = i +1 )
+		{
+			for(int j = 1; j <= i; j = j +1 )
+			{
+				System.out.print(j);
+        	}
+			System.out.println();
+        }
+		scan.close();
+	}
+}
 
 Ejercicio 4
+import java.util.*;
+
+public class Complementario4 {
+    public static void main(String[] args) {		
+      Scanner scan = new Scanner(System.in);
+  
+      System.out.println("Este programa hara el factorial de un numero ingresado.");
+      
+      System.out.println("Ingrese un numero entero:");
+      
+      int numero = scan.nextInt();
+      System.out.println("El factorial de " + numero + " es: " + factorial(numero));
+      scan.close();
+    }
+    
+    public static int factorial (int numero) {
+        if (numero==0)
+          return 1;
+        else
+          return numero * factorial(numero-1);
+    }
+}
 
 Ejercicio 5
+import java.util.*;
+
+public class Complementario5 {
+  private static int multiplicacion;
+
+  public static void main(String[] args) {		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa hara la multiplicacion de un numero por sumas sucesivas.");
+      
+    System.out.println("Ingrese el primer numero entero:");
+    int a = scan.nextInt();
+
+    System.out.println("Ingrese el segundo numero entero:");
+    int b = scan.nextInt();
+
+    for(int i = 1; i <= b; i = i +1 )
+    {
+      multiplicacion = multiplicacion+a;
+    }
+    System.out.println("El resultado es: "+ multiplicacion);
+    scan.close();
+	}
+}
 
 Ejercicio 6
+import java.util.*;
+
+public class Complementario6 {
+  private static int potencia;
+  private static int aux;
+
+  public static void main(String[] args) {		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa hara la potencia de un numero por multiplicaciones sucesivas.");
+      
+    System.out.println("Ingrese el primer numero entero:");
+    int a = scan.nextInt();
+
+    System.out.println("Ingrese el segundo numero entero:");
+    int b = scan.nextInt();
+
+    aux = 1;
+    for(int i = 1; i <= b; i = i +1 )
+    {
+      potencia = aux*a;
+      aux = potencia;
+    }
+    System.out.println("El resultado es: "+ potencia);
+    scan.close();
+	}
+}
 
 Ejercicio 7
+import java.util.*;
+
+public class Complementario7 {
+  private static char minus[] = {' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'};
+  private static char mayus[] = {' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+  private static int longitud;
+  private static String aux;  
+
+  public static void main(String[] args) {		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa convertira un string en minusculas a mayusculas. NO ADMITE SIMBOLOS ESPECIALES");
+      
+    System.out.println("Ingrese string:");
+    String a = scan.nextLine();
+
+    longitud = a.length(); //nombre_string.length(); devuelve longitud del string
+    System.out.println(longitud);
+
+    for(int i = 0; i < longitud; i = i +1 ){
+      char valor = a.charAt(i); //nombre_string.charAt(entero); devuelve el char de la posicion del numero entero que coloquemos
+      System.out.println(valor);
+      for(int j = 0; j < 27; j = j +1 ){
+        if(minus[j]==valor || mayus[j]==valor){ 
+          if (aux==null){
+            aux = Character.toString(mayus[j])+""; //Character.toString(char); convierte un char en string
+          }
+          else{
+            aux = aux.concat(Character.toString(mayus[j])+""); //nombre_string.concat(string); o nombre_string.concat(char+""); concatena strings
+          }
+        }
+      }
+    }
+    System.out.println(aux);
+    scan.close();
+	}
+}
 
 Ejercicio 8
+import java.util.*;
+
+public class Complementario8 {
+  private static char direccion[];
+  public static void main(String[] args) {	
+    direccion = new char[30];	
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa pedira datos y los mostrara por pantalla.");
+
+    System.out.println("Ingrese su Nombre y Apellido:");
+    String nomyape = scan.nextLine();
+
+    System.out.println("Ingrese su Edad:");
+    int edad = scan.nextInt();
+
+    System.out.println("Ingrese su Direccion:");
+    String direccion = scan.nextLine() + scan.nextLine();
+
+    System.out.println("Ingrese su Ciudad:");
+    String ciudad = scan.nextLine();
+
+    System.out.println(ciudad + " - " + direccion + " - " + edad + " - " + nomyape);
+    scan.close();
+	}
+}
 
 Ejercicio 9
+import java.util.*;
+
+public class Complementario9 {
+  public static int cont;
+  public static void main(String[] args) {		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Este programa contara la cantidad de veces que aparece una letra en un string");
+      
+    System.out.println("Ingrese string:");
+    String a = scan.nextLine();
+    
+    System.out.println("Ingrese la letra a buscar:");
+    char b = scan.next().charAt(0);
+
+    int longitud = a.length(); //nombre_string.length(); devuelve longitud del string
+
+    for(int i = 0; i < longitud; i = i +1 ){
+      char valor = a.charAt(i);
+      if (valor==b){
+        cont = cont+1;
+      }
+    }
+    System.out.println(cont);
+  }
+}
