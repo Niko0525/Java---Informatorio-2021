@@ -1,0 +1,13 @@
+Alexander,Blackwood,21-10-1988,70587.50
+Estefania,Carmina,15-02-1992,59587.30
+Adrian,Barilari,10-07-1988,69156.70
+Beltran,Krutoy,18-10-1994,20473.25
+Graciela,Ramires,22-01-1985,70202.80
+Gawin,Caskey,30-11-1977,88540.60
+Juliana,Gomez,20-04-1996,39789
+Alberto,Alarcon,05-07-1978,79327.80
+Elisa,Gonzales,13-09-1985,52478.98
+Cecilia,Alvaredo,12-12-1977,105764.55
+Patricio,Chavez,17-09-1986,114505.80
+Ernesto,Menendez,24-10-1996,22489.55
+Carlos,Canek,07-11-1995,107578.46
